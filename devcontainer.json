@@ -1,0 +1,4 @@
+{
+    // Open port 3000 by default
+    "appPort": 3000
+}

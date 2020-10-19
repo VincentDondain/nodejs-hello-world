@@ -1,6 +1,12 @@
-var http = require('http');
+var http = require('https');
+const fs = require('fs');
 
-var server = http.createServer(function(request, response) {
+const options = {
+    key: fs.readFileSync('key.pem'),
+    cert: fs.readFileSync('cert.pem')
+};
+
+var server = http.createServer(options, function(request, response) {
     console.log(request.method + " " + request.url);
     response.writeHead(200, {"Content-Type": "text/html"});
     response.end("<html><body><form method='GET'><input name='text'></form></body></html>");
